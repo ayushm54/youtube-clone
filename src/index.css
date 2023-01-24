@@ -1,13 +1,251 @@
-body {
+body{
+  background-color: #000000;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(114, 113, 113);
+  border-radius: 10px;
+  height: 200px;
+}
+
+.feeds-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.main{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: black;
+}
+.navbar-item{
+  align-items: flex-start;
+}
+
+.search-bar{
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid white;
+  border-radius: 1.375rem;
+  height: 25px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  align-items: center;
+  padding: 0.5rem;
+  width: 25%;
+  background-color: white;
+}
+
+.search-input{
+  outline: none;
+  padding: 0.5rem;
+  border: none;
+  width: 100%;
+}
+
+.search-icon{
+  background: white;
+  outline: none;
+  cursor: pointer;
+  margin-right: 5px;
+  overflow: hidden;
+  border: none;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+  border-right: 0.5px solid rgb(200, 200, 200);
+}
+
+.sidebar-item{
+  margin: 10px;
+  padding: 7px;
+  outline: none;
+  text-transform: capitalize;
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar-item:hover{
+  background-color: red;
+  color: white !important;
+}
+
+.sidebar-item:hover span{
+  color: white !important;
+}
+
+.sidebar-item-selected {
+  background-color: red;
+  color: white !important;
+}
+
+.sidebar-item-selected-icon{
+  color: white !important;
+}
+
+.side-bar-item-icon{
+  color: red;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.feeds{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+  grid-row-gap: 7px;
+  grid-column-gap: 5px;
+}
+
+
+.video-card{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border-radius: 0.25rem;
+  color: white;
+  width: 300px;
+  height: 300px;
+  background-color: #1E1E1E;
+  cursor: pointer;
+}
+.video-card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(203, 201, 201, 0.11),
+    0 24px 46px var(--box-shadow-color);
+}
+
+.video-card-title{
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.card-img{
+  width: 100%;
+}
+
+.channel-name{
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  color: gray;
+  letter-spacing: 0.00714em;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.feeds-header{
+  display: flex;
+  font-family: Geneva;
+}
+
+.react-player {
+  height: 75vh !important;
+  width: 100% !important;
+}
+
+.video-detail{
+  padding: 10px;
+  display: flex;
+}
+
+.video-footer{
+  margin-top: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.video-stats{
+  display: flex;
+}
+
+.video-stats p{
+  padding-right: 20px;
+}
+
+.player-video{
+  position: sticky;
+  width: 100%;
+  top: 86px;
+  margin-right: 10px;
+  flex:1;
+  height: 90vh;
+}
+
+.related-videos{
+  overflow-y: auto;
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .scroll-horizontal {
+    overflow: auto !important;
+  }
+  .player-video{
+    height: 50vh;
+    position: relative;
+  }
+
+  .react-player {
+    height: 40vh !important;
+  }
+  .search-bar{
+    width:200px;
+  }
 }
